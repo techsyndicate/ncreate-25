@@ -1,116 +1,229 @@
 import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+function Home() {
   return (
-    <div>
-      <div style={{ position: "fixed", top: "6vw", left: "7vw" }}>
-        <Image
-          alt=""
-          width={50}
-          height={50}
-          src="/backBtn.png"
-          style={{ height: "5vw", width: "auto" }}
-        ></Image>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        background: "#0b0b0b",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          background: "rgba(33, 33, 33, 0.98)",
+          position: "absolute",
+          zIndex: "10",
+          height: "35vh",
+          // top: "-35vh",
+          top: "0",
+          left: "0",
+          width: "100vw",
+        }}
+      >
+        <div>X</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
+        <div>Home</div>
       </div>
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
-          paddingTop: "6vw",
-          gap: "2vw",
+          padding: "6vw",
         }}
       >
         <Image
+          src="/menuBar.png"
           alt=""
           width={50}
-          height={50}
+          height={20}
+          style={{ height: "1.5vh", width: "auto" }}
+        ></Image>
+        <Image
           src="/profileIcon.png"
-          style={{ width: "6vw" }}
+          alt=""
+          width={50}
+          height={20}
+          style={{ height: "3vh", width: "auto" }}
         ></Image>
-        <p style={{ fontSize: "4vw", lineHeight: "1" }}>J0xn_d03</p>
       </div>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
+          gap: "3vw",
           alignItems: "center",
-          gap: "5vw",
-          marginTop: "6.7vh",
+          marginTop: "2vh",
         }}
       >
-        <Image
-          alt=""
-          width={50}
-          height={50}
-          src="/leftButton.png"
-          style={{ width: "6vw" }}
-        ></Image>
+        <p style={{ fontSize: "4vh", lineHeight: "1" }}>X-Orbs</p>
         <div>
           <Image
+            src="/batteryIcon.png"
             alt=""
-            width={200}
-            height={400}
-            src="/bhavit-grover.png"
-            style={{ width: "67vw" }}
+            width="68"
+            height="40"
+            style={{ height: "1.5vh", width: "auto" }}
           ></Image>
+          <p
+            style={{ fontSize: "1.15vh", lineHeight: "1", marginTop: "0.3vh" }}
+          >
+            74%
+          </p>
         </div>
-        <Image
-          alt=""
-          width={50}
-          height={50}
-          src="/rightButton.png"
-          style={{ width: "6vw" }}
-        ></Image>
       </div>
-      <div
+      <Image
+        src="/backpack-doc.png"
+        alt=""
+        width={319}
+        height={292}
         style={{
-          position: "relative",
-          width: "60vw",
-          height: "12vw",
-          marginLeft: "20vw",
-          display: "flex",
-          alignItems: "center",
-          marginTop: "1.5vh",
+          width: "65vw",
+          marginTop: "4vh",
+          alignSelf: "center",
+          zIndex: "5",
         }}
-      >
+      ></Image>
+      <div style={{ marginTop: "-40vw", position: "relative" }}>
         <Image
-          src="/dottedLine.png"
-          width={200}
-          height={10}
+          src="/something.png"
           alt=""
-          style={{ width: "60vw" }}
+          width={500}
+          height={500}
+          style={{ width: "100vw", height: "auto" }}
         ></Image>
-        <Image
-          src="/slider.png"
-          width={50}
-          height={50}
-          alt=""
+        <div
           style={{
-            height: "12vw",
-            width: "auto",
+            display: "flex",
             position: "absolute",
-            left: "24vw",
+            left: "6vw",
+            top: "23.67vw",
+            alignItems: "center",
           }}
-        ></Image>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          height: "25vh",
-          bottom: "0",
-          width: "104vw",
-          left: "-2vw",
-        }}
-      >
-        <Image
-          alt=""
-          width={300}
-          height={200}
-          src="/tedhiMedhiPhotu.png"
-          style={{ width: "104vw", height: "auto", position: "absolute", bottom: "0" }}
-        ></Image>
+        >
+          <Image
+            src="/heartIcon.png"
+            alt=""
+            width={50}
+            height={50}
+            style={{ width: "6.1vw", height: "auto", marginRight: "1vw" }}
+          ></Image>
+          <p style={{ fontSize: "7vw", lineHeight: "1", marginRight: "0.5vw" }}>
+            85
+          </p>
+          <p
+            style={{
+              fontSize: "2.5vw",
+              alignSelf: "flex-end",
+              color: "#999",
+              lineHeight: "1.6",
+            }}
+          >
+            BPM
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            position: "absolute",
+            left: "73vw",
+            top: "23.67vw",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            src="/personIcon.png"
+            alt=""
+            width={50}
+            height={50}
+            style={{ width: "6.1vw", height: "auto", marginRight: "1vw" }}
+          ></Image>
+          <p style={{ fontSize: "7vw", lineHeight: "1", marginRight: "0.5vw" }}>
+            18
+          </p>
+          <p
+            style={{
+              fontSize: "2.5vw",
+              alignSelf: "flex-end",
+              color: "#999",
+              lineHeight: "1.6",
+            }}
+          >
+            mV
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            position: "absolute",
+            left: "19vw",
+            top: "58vw",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            src="/oxygenIcon.png"
+            alt=""
+            width={50}
+            height={50}
+            style={{ width: "6.1vw", height: "auto", marginRight: "2vw" }}
+          ></Image>
+          <p style={{ fontSize: "7vw", lineHeight: "1", marginRight: "0.5vw" }}>
+            96
+          </p>
+          <p
+            style={{
+              fontSize: "2.5vw",
+              alignSelf: "flex-end",
+              color: "#999",
+              lineHeight: "1.6",
+            }}
+          >
+            %
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            position: "absolute",
+            left: "61.67vw",
+            top: "58vw",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            src="/temperatureIcon.png"
+            alt=""
+            width={50}
+            height={50}
+            style={{ width: "2.8vw", height: "auto", marginRight: "2vw" }}
+          ></Image>
+          <p
+            style={{ fontSize: "7vw", lineHeight: "1", marginRight: "0.67vw" }}
+          >
+            98
+          </p>
+          <p
+            style={{
+              fontSize: "2.5vw",
+              alignSelf: "flex-end",
+              color: "#999",
+              lineHeight: "1.6",
+            }}
+          >
+            °F
+          </p>
+        </div>
       </div>
     </div>
   );
 }
+
+export default Home;

@@ -18,6 +18,28 @@ const futuraFont = localFont({
   variable: "--font-futura",
 });
 
+const oxaniumFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Oxanium-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-oxanium",
+});
+
+const kelvinizedFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Kelvinized.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-kelvinized",
+});
+
 export const metadata: Metadata = {
   title: "Newman Solutions",
   description: "idk what to write bro",
@@ -31,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${futuraFont.className} antialiased w-[100vw] h-[100vh]`}
+        className={`${futuraFont.variable} ${kelvinizedFont.variable} ${oxaniumFont.variable} antialiased w-[100vw] h-[100vh]`}
       >
         {children}
       </body>
