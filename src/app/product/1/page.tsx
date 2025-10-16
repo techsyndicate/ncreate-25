@@ -1,19 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [sliderX, setSliderX] = useState(30);
   const [isDragging, setIsDragging] = useState(false);
   const [frameNumber, setFrameNumber] = useState(1);
-
-  useEffect(() => {
-    for (let i = 1; i <= 20; i++) {
-      const img = new window.Image();
-      img.src = `/flux-animation/${String(i).padStart(4, "0")}.png`;
-    }
-  }, []);
+  const router = useRouter()
 
   const updatePosition = (clientX: number) => {
     if (!sliderRef.current) return;
@@ -63,6 +58,7 @@ export default function Home() {
           height={50}
           src="/backBtn.png"
           style={{ height: "5vw", width: "auto" }}
+          onClick={() => {router.push('/')}}
         ></Image>
       </div>
       <div
@@ -98,6 +94,7 @@ export default function Home() {
           height={50}
           src="/leftButton.png"
           style={{ width: "6vw" }}
+          onClick={() => {router.push('/product/3')}}
         ></Image>
         <div>
           <Image
@@ -117,6 +114,7 @@ export default function Home() {
           height={50}
           src="/rightButton.png"
           style={{ width: "6vw" }}
+          onClick={() => {router.push('/product/2')}}
         ></Image>
       </div>
       <div

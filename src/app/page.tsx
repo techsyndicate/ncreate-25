@@ -1,7 +1,19 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useState } from "react";
+import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 function Home() {
+  const router = useRouter();
+  const [navbarShown, setNavbarShown] = useState(false);
+  const handleCloseClick = () => {
+    setNavbarShown(false);
+  };
+  const handleMenuClick = () => {
+    setNavbarShown(true);
+  };
+
   return (
     <div
       style={{
@@ -18,18 +30,37 @@ function Home() {
           background: "rgba(33, 33, 33, 0.98)",
           position: "absolute",
           zIndex: "10",
-          height: "35vh",
-          // top: "-35vh",
-          top: "0",
+          height: "62vw",
+          top: `${navbarShown ? "0vh" : "-62vw"}`,
           left: "0",
           width: "100vw",
+          padding: "7vw",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1vw",
+          transition: "0.45s",
         }}
       >
-        <div>X</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
+        <div style={{ marginBottom: "3vw" }}>
+          <Image
+            src="/crossIcon.png"
+            alt=""
+            width={50}
+            height={25}
+            style={{ width: "6.7vw", height: "auto" }}
+            onClick={handleCloseClick}
+          ></Image>
+        </div>
+        <div style={{ fontSize: "6.2vw" }}>HOME</div>
+        <Link href="/product/1" style={{ fontSize: "6.2vw", color: "#888" }}>
+          PRODUCTS
+        </Link>
+        <Link href="/profile" style={{ fontSize: "6.2vw", color: "#888" }}>
+          PROFILE
+        </Link>
+        <Link href="/panel" style={{ fontSize: "6.2vw", color: "#888" }}>
+          CONTROL PANEL
+        </Link>
       </div>
       <div
         style={{
@@ -45,6 +76,7 @@ function Home() {
           width={50}
           height={20}
           style={{ height: "1.5vh", width: "auto" }}
+          onClick={handleMenuClick}
         ></Image>
         <Image
           src="/profileIcon.png"
@@ -52,6 +84,7 @@ function Home() {
           width={50}
           height={20}
           style={{ height: "3vh", width: "auto" }}
+          onClick={() => {router.push('/profile')}}
         ></Image>
       </div>
       <div

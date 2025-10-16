@@ -1,19 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const sliderRef = useRef<HTMLDivElement>(null);
   const [sliderX, setSliderX] = useState(30);
   const [isDragging, setIsDragging] = useState(false);
   const [frameNumber, setFrameNumber] = useState(1);
-
-  useEffect(() => {
-    for (let i = 1; i <= 20; i++) {
-      const img = new window.Image();
-      img.src = `/torbs-animation/${String(i).padStart(4, "0")}.png`;
-    }
-  }, []);
 
   const updatePosition = (clientX: number) => {
     if (!sliderRef.current) return;
@@ -24,9 +19,9 @@ export default function Home() {
     setSliderX(newLeftVw);
     setFrameNumber(Math.ceil(percent * 20));
     if (Math.ceil(percent * 20) - 10 <= 0) {
-      setFrameNumber(10 + Math.ceil(percent * 20))
+      setFrameNumber(10 + Math.ceil(percent * 20));
     } else {
-      setFrameNumber(Math.ceil(percent * 20) - 10)
+      setFrameNumber(Math.ceil(percent * 20) - 10);
     }
   };
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -63,6 +58,9 @@ export default function Home() {
           height={50}
           src="/backBtn.png"
           style={{ height: "5vw", width: "auto" }}
+          onClick={() => {
+            router.push('/');
+          }}
         ></Image>
       </div>
       <div
@@ -98,16 +96,16 @@ export default function Home() {
           height={50}
           src="/leftButton.png"
           style={{ width: "6vw" }}
+          onClick={() => {
+            router.push("/product/2");
+          }}
         ></Image>
         <div>
           <Image
             alt=""
             width={200}
             height={400}
-            src={`/torbs-animation/${String(frameNumber).padStart(
-              4,
-              "0"
-            )}.png`}
+            src={`/torbs-animation/${String(frameNumber).padStart(4, "0")}.png`}
             style={{ width: "67vw" }}
           ></Image>
         </div>
@@ -117,6 +115,9 @@ export default function Home() {
           height={50}
           src="/rightButton.png"
           style={{ width: "6vw" }}
+          onClick={() => {
+            router.push("/product/1");
+          }}
         ></Image>
       </div>
       <div
@@ -165,13 +166,16 @@ export default function Home() {
       >
         <div style={{ padding: "2vw 6vw 0 6vw" }}>
           <h1 style={{ fontSize: "6vw", lineHeight: "1.2" }}>
-            THE<br></br>LIMBOZINE
+            THE<br></br>X-ORBS
           </h1>
-          <p className="oxanium" style={{ fontSize: "2.67vw", marginTop: "2vw", color: "#bbb" }}>
-            ADVANCED MECHANICAL LIMBS FOR HEAVY LIFTING, PRECISION TASKS, AND
-            RAPID REPAIRS. BUILT FOR VERTICAL MOBILITY, DEFENSE, AND HANDLING
-            HAZARDOUS MATERIALS, THEY EXTEND HUMAN CAPABILITY WITH POWER,
-            PRECISION, AND PROTECTION.
+          <p
+            className="oxanium"
+            style={{ fontSize: "2.67vw", marginTop: "2vw", color: "#bbb" }}
+          >
+            COMPACT, LEVITATING NEURAL LINK SPHERES THAT MOVE AS A DIRECT
+            EXTENSION OF YOUR WILL. UNLIKE AUTONOMOUS DRONES, XORBS ACT PURELY
+            THROUGH YOUR NEURAL IMPULSES, OFFERING PRECISION WITHOUT DETACHMENT:
+            TECHNOLOGY AS A TRUE EXTENSION OF SELF.
           </p>
         </div>
         <Image
